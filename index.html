@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>BiFocal: Target-Enhanced Video Editing with Region-Specific Refinement</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">BiFocal: Target-Enhanced Video Editing <br> with Region-Specific Refinement</h1>
+<!--             <div class="is-size-5 publication-authors"> -->
+              <!-- Paper authors -->
+<!--               <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Institution Name<br>Conferance name and year</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links"> -->
+                         <!-- Arxiv PDF link -->
+<!--                       <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+
+                <!-- ArXiv abstract Link -->
+<!--                 <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+<!--             </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image-Guided Video Editing carousel -->
+<section class="hero teaser">
+      <div class="hero-body ">
+    <div class="container is-max-desktop">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="header-video1" autoplay muted loop playsinline height="100%" src="static/videos/teaser_butterfly.mp4">
+          </video>
+          <!-- <h2 class="subtitle has-text-centered">
+        Given a video and a text prompt, Dreamix edits the video while maintaining fidelity to color, posture, object size and camera pose, resulting in a temporally consistent video. Here, Dreamix turns the eating monkey (left) to a dancing bear (right) given the prompt “A bear dancing and jumping to upbeat music, moving his whole body“.
+      </h2> -->
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="header-video2" autoplay muted loop playsinline height="100%" src="static/videos/teaser_greenhat.mp4">
+          </video>
+          <!-- <h2 class="subtitle has-text-centered">
+        Dreamix can create videos based on image and text inputs. In this example it is able to instill complex motion in a static image, adding a moving shark and making the turtle swim. In this case, visual fidelity to object location and background was preserved but the turtle direction was flipped.
+      </h2> -->
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="header-video3" autoplay muted loop playsinline height="100%"  src="static/videos/teaser_cup.mp4">
+          </video>
+          <!-- <h2 class="subtitle has-text-centered">
+          Given a small collection of images showing the same subject, Dreamix can generate new videos with the subject in motion. In this example, given a small number of images of the toy fireman, Dreamix is able to extract the visual features then animate it to lift weights while maintaining fidelity and temporal consistency.
+      </h2> -->
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="header-video4" autoplay muted loop playsinline height="100%"  src="static/videos/teaser_heron.mp4">
+          </video>
+          <!-- <h2 class="subtitle has-text-centered">
+          Given a small collection of images showing the same subject, Dreamix can generate new videos with the subject in motion. In this example, given a small number of images of the toy fireman, Dreamix is able to extract the visual features then animate it to lift weights while maintaining fidelity and temporal consistency.
+      </h2> -->
+        </div>
+      </div>
+      <h2 class="subtitle">
+        We propose BiFocal, a first-frame-based video editing method, which can perform target-directed and temporally consistent editing on real-world videos.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End Subject Driven Video Generation carousel -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            As digital content creation and editing are in great demand, recent advances in diffusion models have paved the way for automated and high-quality video editing. However, most existing methods rely heavily on text prompts and thus suffer from challenges such as semantic ambiguity, attribute leakage, and insufficient local control. To address these issues, we propose BiFocal, a training-free image-guided video editing framework capable of precisely manipulating target regions while preserving unedited content. Specifically, BiFocal introduces a Selective Content Preservation and Editing (SCOPE) operation to explicitly optimize the reconstruction of non-edited regions, thereby enhancing background fidelity. In parallel, the proposed Target Enhanced Attention (TEA) module reinforces the texture consistency guided by reference image across edited frames, effectively mitigating temporal drift in target regions. Notably, our approach requires no extra fine-tuning or training. Extensive experiments demonstrate that BiFocal achieves competitive performance at aspect of visual quality, temporal consistency, and inference speed compared to other methods. These results highlight its potential as an effective and practical solution for high-quality video editing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Paper method -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <center>
+          <img src="static/images/pipeline.png" alt="BiFocal Pipeline" class="center-image blend-img-background"/>
+          </center>
+          <p>
+            <strong>Top</strong>: We employ an off-the-shelf image editing model to modify the first frame using a reference image. Then during the process of synchronous denoising, selected features from the guidance branch are injected into the main generation branch to assist in editing the video. <strong>Bottom</strong>: We detail the two core components of our proposed method. The TEA module fuses the values of the edited first frame and subsequent frames using a mask derived from self-attention score maps. The SCOPE module leverages video segmentation masks to selectively retain background information tokens from the source video.          
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Video Comparisons On PexPix-Edit Dataset-->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Comparisons On PexPix-Edit Dataset</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <center>
+          <img src="static/images/ipe_bird_cmp_img.png" alt="ipe_bird_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/ipe_bird_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <center>
+            <img src="static/images/ipe_bread_cmp_img.png" alt="ipe_bread_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/ipe_bread_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <center>
+            <img src="static/images/ipe_cocktail_cmp_img.png" alt="ipe_cocktail_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_cocktail_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <center>
+            <img src="static/images/ipe_turtle_cmp_img.png" alt="ipe_turtle_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_turtle_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+<!--         <div class="item item-video4">
+          <center>
+            <img src="static/images/ipe_coffeecup_cmp_img.png" alt="ipe_coffeecup_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_coffeecup_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div> -->
+        <div class="item item-video5">
+          <center>
+            <img src="static/images/ipe_peacock_cmp_img.png" alt="ipe_peacock_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video5" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_peacock_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video6">
+          <center>
+            <img src="static/images/ipe_stop_cmp_img.png" alt="ipe_stop_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video6" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_stop_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <center>
+            <img src="static/images/ipe_strawhat_cmp_img.png" alt="ipe_strawhat_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_strawhat_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <center>
+            <img src="static/images/ipe_stripedbowl_cmp_img.png" alt="ipe_stripedbowl_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video8" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_stripedbowl_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video9">
+          <center>
+            <img src="static/images/ipe_tortoise_cmp_img.png" alt="ipe_tortoise_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <source src="static/videos/ipe_tortoise_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Video Comparisons -->
+
+<!-- Video Comparisons On DAVIS-Edit Dataset-->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Comparisons On DAVIS-Edit Dataset</h2>
+      <p>
+         Since the subjects in the DAVIS dataset usually undergo large motion, we claim that image-guided video editing on these scenarios is a domain problem. 
+      </p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <center>
+            <img src="static/images/davis_cowboy_cmp_img.png" alt="davis_cowboy_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/davis_cowboy_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <center>
+            <img src="static/images/davis_goldenduck_cmp_img.png" alt="davis_goldenduck_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/davis_goldenduck_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <center>
+            <img src="static/images/davis_ridezebra_cmp_img.png" alt="davis_ridezebra_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <source src="static/videos/davis_ridezebra_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <center>
+            <img src="static/images/davis_TransformerTruck_cmp_img.png" alt="davis_TransformerTruck_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video4" autoplay controls muted loop height="100%">
+            <source src="static/videos/davis_TransformerTruck_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video5">
+          <center>
+            <img src="static/images/davis_zoo_cmp_img.png" alt="davis_zoo_cmp_img" class="center-image blend-img-background" style="max-height: 100px; width: auto;"/>
+          </center>
+          <video poster="" id="video5" autoplay controls muted loop height="100%">
+            <source src="static/videos/davis_zoo_cmp.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Video Comparisons -->
+
+<!-- Ablation Study -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Ablation Study</h2>
+      <div class="content has-text-justified">
+        <p>
+          We evaluate the impact of the Selective Content Preservation and Editing (SCOPE) module and the Target Enhanced Attention (TEA) module by entirely removing them from our pipeline. 
+          Without SCOPE, background fidelity significantly decreases, resulting in unwanted changes to non-edited regions. Meanwhile, the absence of TEA sometimes leads to increased temporal drift and reduced texture consistency in edited regions. 
+        </p>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video1">
+            <video poster="" id="video1" autoplay controls muted loop height="100%">
+              <source src="static/videos/ablation_1.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video2">
+            <video poster="" id="video2" autoplay controls muted loop height="100%">
+              <source src="static/videos/ablation_2.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video3">
+            <video poster="" id="video3" autoplay controls muted loop height="100%">
+              <source src="static/videos/ablation_19.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video4">
+            <video poster="" id="video4" autoplay controls muted loop height="100%">
+              <source src="static/videos/ablation_27.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video5">
+            <video poster="" id="video5" autoplay controls muted loop height="100%">
+              <source src="static/videos/ablation_31.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video6">
+            <video poster="" id="video6" autoplay controls muted loop height="100%">
+              <source src="static/videos/ablation_42.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video7">
+            <video poster="" id="video7" autoplay controls muted loop height="100%">    
+              <source src="static/videos/ablation_48.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+        </div>
+</section>
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+<!--   <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
